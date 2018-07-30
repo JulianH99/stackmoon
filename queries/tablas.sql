@@ -1,8 +1,8 @@
 --create database stackmoon;
 
 create table productos(
-    id_producto serial,
-    uid_producto uuid,
+    id_producto serial unique,
+    uid_producto uuid unique,
     cod_producto varchar(10),
     cantidad_inventario int not null check(cantidad_inventario >= 0),
     precio int not null check(precio > 0),
@@ -15,8 +15,8 @@ create table productos(
 );
 
 create table facturas (
-    id_factura serial,
-    uid_factura uuid,
+    id_factura serial unique,
+    uid_factura uuid unique,
     fecha_factura date not null default CURRENT_TIMESTAMP,
     tipo_factura bit not null,
     primary key(id_factura, uid_factura)
@@ -28,14 +28,14 @@ create table det_facturas_productos(
     cantidad_producto int not null check(cantidad_producto > 0)
 );
 
-create table det_facturas_proveedor(
+create table det_facturas_proveedores(
     id_factura int not null,
     id_proveedor int not null
 );
 
 create table proveedores(
-    id_proveedor serial,
-    uid_proveedor uuid,
+    id_proveedor serial unique,
+    uid_proveedor uuid unique,
     nombre varchar(30) unique,
     correo varchar(30) unique,
     telefono varchar(15) unique,
@@ -45,22 +45,22 @@ create table proveedores(
 );
 
 create table ivas(
-    id_iva serial,
-    uid_iva uuid,
+    id_iva serial unique,
+    uid_iva uuid unique,
     valor int not null,
     primary key(id_iva, uid_iva)
 );
 
 create table tipos_producto(
-    id_tipo_producto serial,
-    uid_tipo_producto uuid,
+    id_tipo_producto serial unique,
+    uid_tipo_producto uuid unique,
     nombre varchar(30),
     primary key(id_tipo_producto, uid_tipo_producto)
 );
 
 create table fechas_especiales(
-    id_fecha_especial serial,
-    uid_fecha_especial uuid,
+    id_fecha_especial serial unique,
+    uid_fecha_especial uuid unique,
     nombre varchar(50),
     fecha date not null,
     nota text null,
@@ -68,8 +68,8 @@ create table fechas_especiales(
 );
 
 create table pedidos(
-    id_pedido serial,
-    uid_pedido uuid,
+    id_pedido serial unique,
+    uid_pedido uuid unique,
     fecha_creacion date default current_timestamp,
     fecha_entrega date not null,
     tipo_pedido bit not null,
@@ -91,20 +91,20 @@ create table det_pedidos_proveedores(
 alter table productos
     add foreign key (id_iva) references ivas(id_iva),
    add  foreign key(id_tipo_prod) references tipos_producto(id_tipo_producto),
-    add foreign key(id_proveedor) references proveedores(id_proveedor)
+    add foreign key(id_proveedor) references proveedores(id_proveedor);
 
-alter det_facturas_productos
-    foreign key(id_producto) references productos(id_producto),
-    foreign key(id_factura) references facturas(id_factura)
+alter table det_facturas_productos
+    add foreign key(id_producto) references productos(id_producto),
+    add foreign key(id_factura) references facturas(id_factura);
 
-alter det_facturas_proveedores
-    foreign key(id_producto) references productos(id_producto),
-    foreign key(id_proveedor) references proveedores(id_proveedor)
+alter table det_facturas_proveedores
+    add foreign key(id_factura) references facturas(id_factura),
+    add foreign key(id_proveedor) references proveedores(id_proveedor);
 
-alter det_pedidos_productos
-    foreign key(id_pedido) references pedidos(id_pedido),
-    foreign key(id_producto) references productos(id_producto)
+alter table det_pedidos_productos
+    add foreign key(id_pedido) references pedidos(id_pedido),
+    add foreign key(id_producto) references productos(id_producto);
 
-alter det_pedidos_proveedores
-    foreign key(id_pedido) references pedidos(id_pedido),
-    foreign key(id_proveedor) references proveedores(id_proveedor)
+alter table det_pedidos_proveedores
+    add foreign key(id_pedido) references pedidos(id_pedido),
+    add foreign key(id_proveedor) references proveedores(id_proveedor);
