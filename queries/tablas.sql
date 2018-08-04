@@ -108,3 +108,23 @@ alter table det_pedidos_productos
 alter table det_pedidos_proveedores
     add foreign key(id_pedido) references pedidos(id_pedido),
     add foreign key(id_proveedor) references proveedores(id_proveedor);
+
+-- agregar campos de activo/inactivo
+
+alter table productos
+    add column activo boolean not null default true;
+
+alter table facturas
+    add column activo boolean not null default true;
+
+alter table proveedores
+    add column activo boolean not null default true;
+
+alter table tipos_producto
+    add column activo boolean not null default true;
+
+alter table fechas_especiales
+    add column activo boolean not null default true;
+
+alter table pedidos
+    add column pedidos boolean not null default true;
