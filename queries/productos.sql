@@ -38,13 +38,9 @@ begin
   );
 
 
-  exts := (select count(*) from productos where uid_producto = uid);
+  get diagnostics exts = row_count;
 
-  if exts > 0 then
-    return true;
-  else
-    return false;
-  end if;
+  return exts > 0;
 
 end;
 $$
@@ -61,6 +57,7 @@ create or replace function editar_producto(
   _id_tipo_prod int,
   _id_proveedor int
 ) returns boolean as $$
+declare updated int;
 begin
 
   update productos set
@@ -73,7 +70,9 @@ begin
     id_proveedor = _id_proveedor
   where id_producto = _id_producto;
 
-  return true;
+  get diagnostics updated = row_count;
+
+  return updated > 0;
 end;
 $$
 language 'plpgsql';
@@ -83,19 +82,14 @@ language 'plpgsql';
 
 create or replace function eliminar_producto(uid uuid)
 returns boolean as $$
-declare eliminado boolean;
+declare deleted integer;
 begin
 
   update productos set activo = false where uid_producto = uid;
 
-  eliminado := (select count(*) from productos where uid = uid && activo = false);
+  get diagnostics deleted = row_count ;
 
-  if eliminado === 1 then
-    return true;
-  else
-    return false;
-  end if;
-
+  return deleted == 1;
 
 end; $$
 

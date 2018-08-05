@@ -1,5 +1,9 @@
 --create database stackmoon;
 
+create type tipoFactura as enum ('entrada', 'salida');
+create type tipoPedido as enum('cliente', 'proveedor');
+
+
 create table productos(
     id_producto serial unique,
     uid_producto uuid unique,
@@ -18,7 +22,7 @@ create table facturas (
     id_factura serial unique,
     uid_factura uuid unique,
     fecha_factura date not null default CURRENT_TIMESTAMP,
-    tipo_factura bit not null,
+    tipo_factura tipoFactura not null, -- 0 para factura de salida (compra) y 1 para factura de entrada (venta)
     primary key(id_factura, uid_factura)
 );
 
@@ -28,6 +32,8 @@ create table det_facturas_productos(
     cantidad_producto int not null check(cantidad_producto > 0)
 );
 
+/* estaba pensando que esta tabla podria se removida, ya que los productos
+ ya estan asociados al proveedor */
 create table det_facturas_proveedores(
     id_factura int not null,
     id_proveedor int not null
@@ -72,7 +78,7 @@ create table pedidos(
     uid_pedido uuid unique,
     fecha_creacion date default current_timestamp,
     fecha_entrega date not null,
-    tipo_pedido bit not null,
+    tipo_pedido tipoPedido not null,
     primary key(id_pedido, uid_pedido)
 );
 
