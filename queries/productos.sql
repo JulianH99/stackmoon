@@ -9,14 +9,10 @@ create or replace function guardar_producto(
 ) returns boolean as
 $$
 declare
-  uid uuid;
   exts integer;
 begin
 
-  uid := uuid_generate_v4();
-
   insert into productos(
-    uid_producto,
     cod_producto,
     cantidad_inventario,
     precio,
@@ -26,7 +22,6 @@ begin
     id_proveedor,
     activo
   ) values (
-    uid,
     cod_producto,
     cantidad_inventario,
     precio,
@@ -48,7 +43,6 @@ language 'plpgsql';
 
 
 create or replace function editar_producto(
-  _id_producto int,
   _cod_producto varchar(10),
   _cantidad_inventario int,
   _precio int,
@@ -68,7 +62,7 @@ begin
     sn_iva = _sn_iva,
     id_tipo_prod = _id_tipo_prod,
     id_proveedor = _id_proveedor
-  where id_producto = _id_producto;
+  where cod_producto = _cod_producto;
 
   get diagnostics updated = row_count;
 
@@ -80,16 +74,17 @@ language 'plpgsql';
 
 -- eliminar producto
 
-create or replace function eliminar_producto(uid uuid)
+create or replace function eliminar_producto(_cod_producto varchar(10))
 returns boolean as $$
 declare deleted integer;
 begin
 
-  update productos set activo = false where uid_producto = uid;
+  update productos set activo = false where cod_producto = _cod_producto;
 
   get diagnostics deleted = row_count ;
 
   return deleted == 1;
 
 end; $$
+language 'plpgsql';
 

@@ -13,9 +13,8 @@ as $$
 declare   uid  uuid;
   declare exts integer;
 begin
-  uid := uuid_generate_v4();
 
-  insert into tipos_producto (uid_tipo_producto, nombre) values (uid, _nombre);
+  insert into tipos_producto (nombre) values (_nombre);
   get diagnostics exts = row_count;
   raise notice 'added % rows in tipos_producto', exts;
 

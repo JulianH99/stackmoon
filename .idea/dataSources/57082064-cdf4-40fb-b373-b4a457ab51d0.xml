@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="PostgreSQL - stackmoon@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.11">
+    <root id="1">
+      <ServerVersion>10.6</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="postgres">
+      <ObjectId>13055</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="3" parent="1" name="stackmoon">
+      <ObjectId>16386</ObjectId>
+      <Owner>julian99</Owner>
+      <IntrospectionStateNumber>115</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="4" parent="1" name="test">
+      <ObjectId>16385</ObjectId>
+      <Owner>julian99</Owner>
+      <IntrospectionStateNumber>115</IntrospectionStateNumber>
+    </database>
+    <role id="5" parent="1" name="julian99">
+      <ObjectId>16384</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="6" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="10" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="11" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="12" parent="3" name="information_schema">
+      <ObjectId>12764</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="13" parent="3" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="14" parent="3" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="15" parent="3" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="16" parent="3" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="17" parent="3" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <Owner>postgres</Owner>
+      <IntrospectionTimestamp>2018-11-20.21:27:07.457</IntrospectionTimestamp>
+      <IntrospectionStateNumber>704</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="18" parent="3" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+      <Handler>pg_catalog.bthandler</Handler>
+      <HandlerId>330</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="19" parent="3" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+      <Handler>pg_catalog.hashhandler</Handler>
+      <HandlerId>331</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="20" parent="3" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+      <Handler>pg_catalog.gisthandler</Handler>
+      <HandlerId>332</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="21" parent="3" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+      <Handler>pg_catalog.ginhandler</Handler>
+      <HandlerId>333</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="22" parent="3" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+      <Handler>pg_catalog.spghandler</Handler>
+      <HandlerId>334</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="23" parent="3" name="brin">
+      <ObjectId>3580</ObjectId>
+      <Comment>block range index (BRIN) access method</Comment>
+      <Handler>pg_catalog.brinhandler</Handler>
+      <HandlerId>335</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <sequence id="24" parent="17" name="facturas_id_factura_seq">
+      <ObjectId>17046</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>664</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="25" parent="17" name="fechas_especiales_id_fecha_especial_seq">
+      <ObjectId>17104</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>670</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="26" parent="17" name="ivas_id_iva_seq">
+      <ObjectId>17086</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>668</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="27" parent="17" name="pedidos_id_pedido_seq">
+      <ObjectId>17115</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>671</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="28" parent="17" name="proveedores_id_proveedor_seq">
+      <ObjectId>17066</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>667</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="29" parent="17" name="tipos_producto_id_tipo_producto_seq">
+      <ObjectId>17095</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>669</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <object-type id="30" parent="17" name="tipofactura">
+      <ObjectId>16621</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>584</StateNumber>
+      <SubKind>enum</SubKind>
+      <SubCategory>enum</SubCategory>
+      <Labels>entrada
+salida</Labels>
+    </object-type>
+    <object-type id="31" parent="17" name="tipopedido">
+      <ObjectId>16626</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>585</StateNumber>
+      <SubKind>enum</SubKind>
+      <SubCategory>enum</SubCategory>
+      <Labels>cliente
+proveedor</Labels>
+    </object-type>
+    <table id="32" parent="17" name="det_facturas_productos">
+      <ObjectId>17055</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>675</StateNumber>
+    </table>
+    <table id="33" parent="17" name="det_facturas_proveedores">
+      <ObjectId>17061</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>676</StateNumber>
+    </table>
+    <table id="34" parent="17" name="det_pedidos_productos">
+      <ObjectId>17124</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>677</StateNumber>
+    </table>
+    <table id="35" parent="17" name="det_pedidos_proveedores">
+      <ObjectId>17128</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>678</StateNumber>
+    </table>
+    <table id="36" parent="17" name="facturas">
+      <ObjectId>17048</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>680</StateNumber>
+    </table>
+    <table id="37" parent="17" name="fechas_especiales">
+      <ObjectId>17106</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>683</StateNumber>
+    </table>
+    <table id="38" parent="17" name="ivas">
+      <ObjectId>17088</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>674</StateNumber>
+    </table>
+    <table id="39" parent="17" name="pedidos">
+      <ObjectId>17117</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>684</StateNumber>
+    </table>
+    <table id="40" parent="17" name="productos">
+      <ObjectId>17038</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>679</StateNumber>
+    </table>
+    <table id="41" parent="17" name="proveedores">
+      <ObjectId>17068</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>681</StateNumber>
+    </table>
+    <table id="42" parent="17" name="tipos_producto">
+      <ObjectId>17097</ObjectId>
+      <Owner>julian99</Owner>
+      <StateNumber>682</StateNumber>
+    </table>
+    <routine id="43" parent="17" name="editar_factura">
+      <ObjectId>17225</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>592</SourceTextLength>
+      <StateNumber>692</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>id_factura integer, productos character varying[], cantidades integer[]</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="44" parent="17" name="editar_iva">
+      <ObjectId>17227</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>225</SourceTextLength>
+      <StateNumber>694</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_id_iva integer, _valor integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="45" parent="17" name="editar_producto">
+      <ObjectId>17235</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>256</SourceTextLength>
+      <StateNumber>703</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_id integer, _nombre character varying</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="46" parent="17" name="editar_producto">
+      <ObjectId>17229</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>383</SourceTextLength>
+      <StateNumber>696</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_cod_producto character varying, _cantidad_inventario integer, _precio integer, _ruta_imagen character varying, _sn_iva bit, _id_tipo_prod integer, _id_proveedor integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="47" parent="17" name="editar_proveedor">
+      <ObjectId>17232</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>203</SourceTextLength>
+      <StateNumber>700</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_id_proveedor integer, _nombre character varying, _correo character varying, _telefono character varying, _telefono2 character varying, _celular character varying</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="48" parent="17" name="eliminar_producto">
+      <ObjectId>17236</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>255</SourceTextLength>
+      <StateNumber>704</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_id integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="49" parent="17" name="eliminar_producto">
+      <ObjectId>17230</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>178</SourceTextLength>
+      <StateNumber>697</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_cod_producto character varying</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="50" parent="17" name="eliminar_proveedor">
+      <ObjectId>17233</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>196</SourceTextLength>
+      <StateNumber>701</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_id_proveedor integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="51" parent="17" name="guardar_factura">
+      <ObjectId>17224</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>549</SourceTextLength>
+      <StateNumber>691</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>fecha_factura date, tipo_factura tipofactura, productos character varying[], cantidades integer[]</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="52" parent="17" name="guardar_iva">
+      <ObjectId>17226</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>183</SourceTextLength>
+      <StateNumber>693</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>valor integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="53" parent="17" name="guardar_producto">
+      <ObjectId>17234</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>226</SourceTextLength>
+      <StateNumber>702</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>_nombre character varying</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="54" parent="17" name="guardar_producto">
+      <ObjectId>17228</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>402</SourceTextLength>
+      <StateNumber>695</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>cod_producto character varying, cantidad_inventario integer, precio integer, ruta_imagen character varying, sn_iva bit, id_tipo_prod integer, id_proveedor integer</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="55" parent="17" name="guardar_proveedor">
+      <ObjectId>17231</ObjectId>
+      <Owner>julian99</Owner>
+      <SourceTextLength>278</SourceTextLength>
+      <StateNumber>699</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>nombre character varying, correo character varying, telefono character varying, telefono2 character varying, celular character varying</ArgumentsDefinition>
+      <ResultsDefinition>boolean</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <column id="56" parent="32" name="id_factura">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>665</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="57" parent="32" name="cod_producto">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>665</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="58" parent="32" name="cantidad_producto">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>665</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="59" parent="32" name="det_facturas_productos_id_factura_fkey">
+      <ObjectId>17151</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <RefTableId>17048</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>facturas</RefTableName>
+      <RefKeyName>facturas_pkey</RefKeyName>
+      <RefColNames>id_factura</RefColNames>
+    </foreign-key>
+    <foreign-key id="60" parent="32" name="det_facturas_productos_cod_producto_fkey">
+      <ObjectId>17146</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <RefTableId>17038</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>productos</RefTableName>
+      <RefKeyName>productos_pkey</RefKeyName>
+      <RefColNames>cod_producto</RefColNames>
+    </foreign-key>
+    <check id="61" parent="32" name="det_facturas_productos_id_factura_check">
+      <ObjectId>17058</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <Predicate>id_factura &gt; 0</Predicate>
+    </check>
+    <check id="62" parent="32" name="det_facturas_productos_cod_producto_check">
+      <ObjectId>17059</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <Predicate>length((cod_producto)::text) &gt; 0</Predicate>
+    </check>
+    <check id="63" parent="32" name="det_facturas_productos_cantidad_producto_check">
+      <ObjectId>17060</ObjectId>
+      <ColNames>cantidad_producto</ColNames>
+      <Predicate>cantidad_producto &gt; 0</Predicate>
+    </check>
+    <column id="64" parent="33" name="id_factura">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>666</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="65" parent="33" name="id_proveedor">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>666</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="66" parent="33" name="det_facturas_proveedores_id_factura_fkey">
+      <ObjectId>17156</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <RefTableId>17048</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>facturas</RefTableName>
+      <RefKeyName>facturas_pkey</RefKeyName>
+      <RefColNames>id_factura</RefColNames>
+    </foreign-key>
+    <foreign-key id="67" parent="33" name="det_facturas_proveedores_id_proveedor_fkey">
+      <ObjectId>17161</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <RefTableId>17068</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>proveedores</RefTableName>
+      <RefKeyName>proveedores_pkey</RefKeyName>
+      <RefColNames>id_proveedor</RefColNames>
+    </foreign-key>
+    <check id="68" parent="33" name="det_facturas_proveedores_id_factura_check">
+      <ObjectId>17064</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <Predicate>id_factura &gt; 0</Predicate>
+    </check>
+    <check id="69" parent="33" name="det_facturas_proveedores_id_proveedor_check">
+      <ObjectId>17065</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <Predicate>id_proveedor &gt; 0</Predicate>
+    </check>
+    <column id="70" parent="34" name="id_pedido">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>672</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="71" parent="34" name="cod_producto">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>672</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="72" parent="34" name="cantidad">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>672</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="73" parent="34" name="det_pedidos_productos_id_pedido_fkey">
+      <ObjectId>17166</ObjectId>
+      <ColNames>id_pedido</ColNames>
+      <RefTableId>17117</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>pedidos</RefTableName>
+      <RefKeyName>pedidos_pkey</RefKeyName>
+      <RefColNames>id_pedido</RefColNames>
+    </foreign-key>
+    <foreign-key id="74" parent="34" name="det_pedidos_productos_cod_producto_fkey">
+      <ObjectId>17171</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <RefTableId>17038</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>productos</RefTableName>
+      <RefKeyName>productos_pkey</RefKeyName>
+      <RefColNames>cod_producto</RefColNames>
+    </foreign-key>
+    <check id="75" parent="34" name="det_pedidos_productos_cantidad_check">
+      <ObjectId>17127</ObjectId>
+      <ColNames>cantidad</ColNames>
+      <Predicate>cantidad &gt; 0</Predicate>
+    </check>
+    <column id="76" parent="35" name="id_pedido">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>673</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="77" parent="35" name="id_proveedor">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>673</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="78" parent="35" name="det_pedidos_proveedores_id_pedido_fkey">
+      <ObjectId>17176</ObjectId>
+      <ColNames>id_pedido</ColNames>
+      <RefTableId>17117</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>pedidos</RefTableName>
+      <RefKeyName>pedidos_pkey</RefKeyName>
+      <RefColNames>id_pedido</RefColNames>
+    </foreign-key>
+    <foreign-key id="79" parent="35" name="det_pedidos_proveedores_id_proveedor_fkey">
+      <ObjectId>17181</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <RefTableId>17068</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>proveedores</RefTableName>
+      <RefKeyName>proveedores_pkey</RefKeyName>
+      <RefColNames>id_proveedor</RefColNames>
+    </foreign-key>
+    <column id="80" parent="36" name="id_factura">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>664</StateNumber>
+      <DefaultExpression>nextval(&apos;facturas_id_factura_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>facturas_id_factura_seq</SequenceName>
+    </column>
+    <column id="81" parent="36" name="fecha_factura">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>664</StateNumber>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="82" parent="36" name="tipo_factura">
+      <Position>3</Position>
+      <DataType>tipofactura|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>664</StateNumber>
+      <TypeId>16621</TypeId>
+    </column>
+    <column id="83" parent="36" name="activo">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>680</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="84" parent="36" name="facturas_pkey">
+      <ObjectId>17053</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="36" name="facturas_pkey">
+      <ObjectId>17054</ObjectId>
+      <ColNames>id_factura</ColNames>
+      <UnderlyingIndexName>facturas_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="37" name="id_fecha_especial">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>670</StateNumber>
+      <DefaultExpression>nextval(&apos;fechas_especiales_id_fecha_especial_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>fechas_especiales_id_fecha_especial_seq</SequenceName>
+    </column>
+    <column id="87" parent="37" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>670</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="88" parent="37" name="fecha">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>670</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="89" parent="37" name="nota">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>670</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="90" parent="37" name="activo">
+      <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>683</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="91" parent="37" name="fechas_especiales_pkey">
+      <ObjectId>17113</ObjectId>
+      <ColNames>id_fecha_especial</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="92" parent="37" name="fechas_especiales_pkey">
+      <ObjectId>17114</ObjectId>
+      <ColNames>id_fecha_especial</ColNames>
+      <UnderlyingIndexName>fechas_especiales_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="93" parent="38" name="id_iva">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>668</StateNumber>
+      <DefaultExpression>nextval(&apos;ivas_id_iva_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>ivas_id_iva_seq</SequenceName>
+    </column>
+    <column id="94" parent="38" name="valor">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>668</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="95" parent="38" name="ivas_pkey">
+      <ObjectId>17093</ObjectId>
+      <ColNames>id_iva</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="38" name="ivas_pkey">
+      <ObjectId>17094</ObjectId>
+      <ColNames>id_iva</ColNames>
+      <UnderlyingIndexName>ivas_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="97" parent="38" name="ivas_valor_check">
+      <ObjectId>17092</ObjectId>
+      <ColNames>valor</ColNames>
+      <Predicate>valor &gt;= 0</Predicate>
+    </check>
+    <column id="98" parent="39" name="id_pedido">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>671</StateNumber>
+      <DefaultExpression>nextval(&apos;pedidos_id_pedido_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>pedidos_id_pedido_seq</SequenceName>
+    </column>
+    <column id="99" parent="39" name="fecha_creacion">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>671</StateNumber>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="100" parent="39" name="fecha_entrega">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>671</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="101" parent="39" name="tipo_pedido">
+      <Position>4</Position>
+      <DataType>tipopedido|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>671</StateNumber>
+      <TypeId>16626</TypeId>
+    </column>
+    <column id="102" parent="39" name="activo">
+      <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>684</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="103" parent="39" name="pedidos_pkey">
+      <ObjectId>17122</ObjectId>
+      <ColNames>id_pedido</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="104" parent="39" name="pedidos_pkey">
+      <ObjectId>17123</ObjectId>
+      <ColNames>id_pedido</ColNames>
+      <UnderlyingIndexName>pedidos_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="40" name="cod_producto">
+      <Position>1</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="106" parent="40" name="cantidad_inventario">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="107" parent="40" name="precio">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="108" parent="40" name="ruta_imagen">
+      <Position>4</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <StateNumber>663</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="109" parent="40" name="sn_iva">
+      <Position>5</Position>
+      <DataType>bit|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>1560</TypeId>
+    </column>
+    <column id="110" parent="40" name="id_iva">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="111" parent="40" name="id_tipo_prod">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="112" parent="40" name="id_proveedor">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>663</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="113" parent="40" name="activo">
+      <Position>9</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>679</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="114" parent="40" name="productos_pkey">
+      <ObjectId>17044</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="40" name="productos_pkey">
+      <ObjectId>17045</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <UnderlyingIndexName>productos_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="116" parent="40" name="productos_id_iva_fkey">
+      <ObjectId>17131</ObjectId>
+      <ColNames>id_iva</ColNames>
+      <RefTableId>17088</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>ivas</RefTableName>
+      <RefKeyName>ivas_pkey</RefKeyName>
+      <RefColNames>id_iva</RefColNames>
+    </foreign-key>
+    <foreign-key id="117" parent="40" name="productos_id_tipo_prod_fkey">
+      <ObjectId>17136</ObjectId>
+      <ColNames>id_tipo_prod</ColNames>
+      <RefTableId>17097</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>tipos_producto</RefTableName>
+      <RefKeyName>tipos_producto_pkey</RefKeyName>
+      <RefColNames>id_tipo_producto</RefColNames>
+    </foreign-key>
+    <foreign-key id="118" parent="40" name="productos_id_proveedor_fkey">
+      <ObjectId>17141</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <RefTableId>17068</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>proveedores</RefTableName>
+      <RefKeyName>proveedores_pkey</RefKeyName>
+      <RefColNames>id_proveedor</RefColNames>
+    </foreign-key>
+    <check id="119" parent="40" name="productos_cod_producto_check">
+      <ObjectId>17041</ObjectId>
+      <ColNames>cod_producto</ColNames>
+      <Predicate>(cod_producto)::text &lt;&gt; &apos;&apos;::text</Predicate>
+    </check>
+    <check id="120" parent="40" name="productos_cantidad_inventario_check">
+      <ObjectId>17042</ObjectId>
+      <ColNames>cantidad_inventario</ColNames>
+      <Predicate>cantidad_inventario &gt;= 0</Predicate>
+    </check>
+    <check id="121" parent="40" name="productos_precio_check">
+      <ObjectId>17043</ObjectId>
+      <ColNames>precio</ColNames>
+      <Predicate>precio &gt; 0</Predicate>
+    </check>
+    <column id="122" parent="41" name="id_proveedor">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>667</StateNumber>
+      <DefaultExpression>nextval(&apos;proveedores_id_proveedor_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>proveedores_id_proveedor_seq</SequenceName>
+    </column>
+    <column id="123" parent="41" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <StateNumber>667</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="124" parent="41" name="correo">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <StateNumber>667</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="125" parent="41" name="telefono">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <StateNumber>667</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="126" parent="41" name="telefono2">
+      <Position>5</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <StateNumber>667</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="127" parent="41" name="celular">
+      <Position>6</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <StateNumber>667</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="128" parent="41" name="activo">
+      <Position>7</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>681</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="129" parent="41" name="proveedores_pkey">
+      <ObjectId>17076</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="130" parent="41" name="proveedores_nombre_key">
+      <ObjectId>17078</ObjectId>
+      <ColNames>nombre</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="131" parent="41" name="proveedores_correo_key">
+      <ObjectId>17080</ObjectId>
+      <ColNames>correo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="132" parent="41" name="proveedores_telefono_key">
+      <ObjectId>17082</ObjectId>
+      <ColNames>telefono</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="133" parent="41" name="proveedores_celular_key">
+      <ObjectId>17084</ObjectId>
+      <ColNames>celular</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="134" parent="41" name="proveedores_pkey">
+      <ObjectId>17077</ObjectId>
+      <ColNames>id_proveedor</ColNames>
+      <UnderlyingIndexName>proveedores_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="135" parent="41" name="proveedores_nombre_key">
+      <ObjectId>17079</ObjectId>
+      <ColNames>nombre</ColNames>
+      <UnderlyingIndexName>proveedores_nombre_key</UnderlyingIndexName>
+    </key>
+    <key id="136" parent="41" name="proveedores_correo_key">
+      <ObjectId>17081</ObjectId>
+      <ColNames>correo</ColNames>
+      <UnderlyingIndexName>proveedores_correo_key</UnderlyingIndexName>
+    </key>
+    <key id="137" parent="41" name="proveedores_telefono_key">
+      <ObjectId>17083</ObjectId>
+      <ColNames>telefono</ColNames>
+      <UnderlyingIndexName>proveedores_telefono_key</UnderlyingIndexName>
+    </key>
+    <key id="138" parent="41" name="proveedores_celular_key">
+      <ObjectId>17085</ObjectId>
+      <ColNames>celular</ColNames>
+      <UnderlyingIndexName>proveedores_celular_key</UnderlyingIndexName>
+    </key>
+    <check id="139" parent="41" name="proveedores_nombre_check">
+      <ObjectId>17072</ObjectId>
+      <ColNames>nombre</ColNames>
+      <Predicate>(nombre)::text &lt;&gt; &apos;&apos;::text</Predicate>
+    </check>
+    <check id="140" parent="41" name="proveedores_correo_check">
+      <ObjectId>17073</ObjectId>
+      <ColNames>correo</ColNames>
+      <Predicate>(correo)::text &lt;&gt; &apos;&apos;::text</Predicate>
+    </check>
+    <check id="141" parent="41" name="proveedores_telefono_check">
+      <ObjectId>17074</ObjectId>
+      <ColNames>telefono</ColNames>
+      <Predicate>length((telefono)::text) &gt;= 6</Predicate>
+    </check>
+    <check id="142" parent="41" name="proveedores_celular_check">
+      <ObjectId>17075</ObjectId>
+      <ColNames>celular</ColNames>
+      <Predicate>length((celular)::text) &gt;= 10</Predicate>
+    </check>
+    <column id="143" parent="42" name="id_tipo_producto">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>669</StateNumber>
+      <DefaultExpression>nextval(&apos;tipos_producto_id_tipo_producto_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>tipos_producto_id_tipo_producto_seq</SequenceName>
+    </column>
+    <column id="144" parent="42" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>669</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="145" parent="42" name="activo">
+      <Position>3</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>682</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="146" parent="42" name="tipos_producto_pkey">
+      <ObjectId>17102</ObjectId>
+      <ColNames>id_tipo_producto</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="147" parent="42" name="tipos_producto_pkey">
+      <ObjectId>17103</ObjectId>
+      <ColNames>id_tipo_producto</ColNames>
+      <UnderlyingIndexName>tipos_producto_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="148" parent="42" name="tipos_producto_nombre_check">
+      <ObjectId>17101</ObjectId>
+      <ColNames>nombre</ColNames>
+      <Predicate>length((nombre)::text) &gt; 0</Predicate>
+    </check>
+    <argument id="149" parent="43" name="id_factura">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="150" parent="43" name="productos">
+      <Position>2</Position>
+      <DataType>character varying[]|0s</DataType>
+    </argument>
+    <argument id="151" parent="43" name="cantidades">
+      <Position>3</Position>
+      <DataType>integer[]|0s</DataType>
+    </argument>
+    <argument id="152" parent="43">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="153" parent="44" name="_id_iva">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="154" parent="44" name="_valor">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="155" parent="44">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="156" parent="45" name="_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="157" parent="45" name="_nombre">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="158" parent="45">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="159" parent="46" name="_cod_producto">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="160" parent="46" name="_cantidad_inventario">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="161" parent="46" name="_precio">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="162" parent="46" name="_ruta_imagen">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="163" parent="46" name="_sn_iva">
+      <Position>5</Position>
+      <DataType>bit|0s</DataType>
+    </argument>
+    <argument id="164" parent="46" name="_id_tipo_prod">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="165" parent="46" name="_id_proveedor">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="166" parent="46">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="167" parent="47" name="_id_proveedor">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="168" parent="47" name="_nombre">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="169" parent="47" name="_correo">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="170" parent="47" name="_telefono">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="171" parent="47" name="_telefono2">
+      <Position>5</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="172" parent="47" name="_celular">
+      <Position>6</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="173" parent="47">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="174" parent="48" name="_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="175" parent="48">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="176" parent="49" name="_cod_producto">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="177" parent="49">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="178" parent="50" name="_id_proveedor">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="179" parent="50">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="180" parent="51" name="fecha_factura">
+      <Position>1</Position>
+      <DataType>date|0s</DataType>
+    </argument>
+    <argument id="181" parent="51" name="tipo_factura">
+      <Position>2</Position>
+      <DataType>tipofactura|0s</DataType>
+    </argument>
+    <argument id="182" parent="51" name="productos">
+      <Position>3</Position>
+      <DataType>character varying[]|0s</DataType>
+    </argument>
+    <argument id="183" parent="51" name="cantidades">
+      <Position>4</Position>
+      <DataType>integer[]|0s</DataType>
+    </argument>
+    <argument id="184" parent="51">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="185" parent="52" name="valor">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="186" parent="52">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="187" parent="53" name="_nombre">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="188" parent="53">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="189" parent="54" name="cod_producto">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="190" parent="54" name="cantidad_inventario">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="191" parent="54" name="precio">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="192" parent="54" name="ruta_imagen">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="193" parent="54" name="sn_iva">
+      <Position>5</Position>
+      <DataType>bit|0s</DataType>
+    </argument>
+    <argument id="194" parent="54" name="id_tipo_prod">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="195" parent="54" name="id_proveedor">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="196" parent="54">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+    <argument id="197" parent="55" name="nombre">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="198" parent="55" name="correo">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="199" parent="55" name="telefono">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="200" parent="55" name="telefono2">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="201" parent="55" name="celular">
+      <Position>5</Position>
+      <DataType>varchar|0s</DataType>
+    </argument>
+    <argument id="202" parent="55">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>boolean|0s</DataType>
+    </argument>
+  </database-model>
+</dataSource>

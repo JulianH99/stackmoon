@@ -11,12 +11,10 @@ create or replace function guardar_iva(
   returns boolean
 as $$
 declare   exts integer;
-  declare uid  uuid;
 begin
 
-  uid := uuid_generate_v4();
 
-  insert into ivas (uid_iva, valor) values (uid, valor);
+  insert into ivas (valor) values (valor);
   get diagnostics exts = row_count;
   raise notice 'added % rows in ivas', exts;
 

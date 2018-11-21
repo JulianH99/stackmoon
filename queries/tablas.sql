@@ -1,13 +1,13 @@
---create database stackmoon;
+-- create database stackmoon;
+
+
 
 create type tipoFactura as enum ('entrada', 'salida');
 create type tipoPedido as enum('cliente', 'proveedor');
 
 
 create table productos(
-    id_producto serial unique,
-    uid_producto uuid unique,
-    cod_producto varchar(10),
+    cod_producto varchar(10) check(cod_producto != ''),
     cantidad_inventario int not null check(cantidad_inventario >= 0),
     precio int not null check(precio > 0),
     ruta_imagen varchar(250) null,
@@ -15,76 +15,70 @@ create table productos(
     id_iva int not null,
     id_tipo_prod int not null,
     id_proveedor int not null,
-    primary key(id_producto, uid_producto, cod_producto)
+    primary key(cod_producto)
 );
 
 create table facturas (
     id_factura serial unique,
-    uid_factura uuid unique,
     fecha_factura date not null default CURRENT_TIMESTAMP,
     tipo_factura tipoFactura not null, -- 0 para factura de salida (compra) y 1 para factura de entrada (venta)
-    primary key(id_factura, uid_factura)
+    primary key(id_factura)
 );
 
 create table det_facturas_productos(
-    id_factura int not null,
-    id_producto int not null,
+    id_factura int not null check (id_factura > 0),
+    cod_producto varchar(10) not null check(length(cod_producto) > 0),
     cantidad_producto int not null check(cantidad_producto > 0)
 );
 
 /* estaba pensando que esta tabla podria se removida, ya que los productos
  ya estan asociados al proveedor */
 create table det_facturas_proveedores(
-    id_factura int not null,
-    id_proveedor int not null
+    id_factura int not null check(id_factura > 0),
+    id_proveedor int not null check(id_proveedor > 0)
 );
 
 create table proveedores(
     id_proveedor serial unique,
-    uid_proveedor uuid unique,
-    nombre varchar(30) unique,
-    correo varchar(30) unique,
-    telefono varchar(15) unique,
-    telefono2 varchar(15) unique,
-    celular varchar(15) unique,
-    primary key(id_proveedor, uid_proveedor)
+    nombre varchar(30) unique check(nombre != ''),
+    correo varchar(30) unique check(correo != ''),
+    telefono varchar(10) unique check(length(telefono) >= 6),
+    telefono2 varchar(15) null,
+    celular varchar(10) unique check(length(celular) >= 10),
+    primary key(id_proveedor)
 );
 
 create table ivas(
     id_iva serial unique,
-    uid_iva uuid unique,
-    valor int not null,
-    primary key(id_iva, uid_iva)
+    valor int not null check(valor >= 0),
+    primary key(id_iva)
 );
 
 create table tipos_producto(
     id_tipo_producto serial unique,
-    uid_tipo_producto uuid unique,
-    nombre varchar(30),
-    primary key(id_tipo_producto, uid_tipo_producto)
+    nombre varchar(30) not null check(length(nombre) > 0),
+    primary key(id_tipo_producto)
 );
 
 create table fechas_especiales(
     id_fecha_especial serial unique,
-    uid_fecha_especial uuid unique,
     nombre varchar(50),
     fecha date not null,
     nota text null,
-    primary key(id_fecha_especial, uid_fecha_especial)
+    primary key(id_fecha_especial)
 );
 
 create table pedidos(
     id_pedido serial unique,
-    uid_pedido uuid unique,
     fecha_creacion date default current_timestamp,
     fecha_entrega date not null,
     tipo_pedido tipoPedido not null,
-    primary key(id_pedido, uid_pedido)
+    primary key(id_pedido)
 );
 
 create table det_pedidos_productos(
     id_pedido int not null,
-    id_producto int not null,
+    cod_producto varchar(10) not null,
     cantidad int not null check(cantidad > 0)
 );
 
@@ -100,7 +94,7 @@ alter table productos
     add foreign key(id_proveedor) references proveedores(id_proveedor);
 
 alter table det_facturas_productos
-    add foreign key(id_producto) references productos(id_producto),
+    add foreign key(cod_producto) references productos(cod_producto),
     add foreign key(id_factura) references facturas(id_factura);
 
 alter table det_facturas_proveedores
@@ -109,7 +103,7 @@ alter table det_facturas_proveedores
 
 alter table det_pedidos_productos
     add foreign key(id_pedido) references pedidos(id_pedido),
-    add foreign key(id_producto) references productos(id_producto);
+    add foreign key(cod_producto) references productos(cod_producto);
 
 alter table det_pedidos_proveedores
     add foreign key(id_pedido) references pedidos(id_pedido),
@@ -133,4 +127,4 @@ alter table fechas_especiales
     add column activo boolean not null default true;
 
 alter table pedidos
-    add column pedidos boolean not null default true;
+    add column activo boolean not null default true;

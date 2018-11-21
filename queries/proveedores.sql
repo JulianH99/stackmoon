@@ -11,33 +11,25 @@ create or replace function guardar_proveedor(
 )
   returns boolean as $$
 declare
-  uid  uuid;
   exts int;
+  insert_count int;
 begin
-  uid := uuid_generate_v4();
 
   insert into proveedores (
-    uid_proveedor, nombre, correo, telefono, telefono2, celular, activo)
-  values (uid, nombre, correo, telefono, telefono2, celular, default);
+    nombre, correo, telefono, telefono2, celular, activo)
+  values (nombre, correo, telefono, telefono2, celular, default);
 
-  exts := (select count(*)
-           from proveedores
-           where uid_proveedor = uid);
+  get diagnostics insert_count = row_count;
 
-  if exts > 0
-  then
-    return true;
-  else
-    return false;
-  end if;
+  return insert_count > 0;
 end;
 $$
-language 'plsql';
+language 'plpgsql';
 
 
 -- editar proveedor
 create or replace function editar_proveedor(
-  uid        uuid,
+  _id_proveedor int,
   _nombre    varchar(30),
   _correo    varchar(30),
   _telefono  varchar(15),
@@ -53,36 +45,32 @@ begin
     telefono  = _telefono,
     telefono2 = _telefono2,
     celular   = _celular
-  where uid_proveedor = uid;
+  where id_proveedor = _id_proveedor;
 
 end;
 $$
-language 'plsql';
+language 'plpgsql';
 
 
 -- eliminar proveedor
 create or replace function eliminar_proveedor(
-  uid uuid
+  _id_proveedor int
 )
   returns boolean as $$
-declare exts boolean;
+declare
+  update_count int;
 begin
 
   update proveedores
   set activo = false
-  where uid_proveedor = uid;
+  where id_proveedor = _id_proveedor;
 
-  exts := (select count(*)
-           from proveedores
-           where uid_proveedor = uid and activo = false);
 
-  if exts > 0
-  then
-    return false;
-  else
-    return true;
-  end if;
+  get diagnostics update_count = row_count;
+
+  return update_count > 0;
 
 end;
 $$
+  language 'plpgsql';
 
