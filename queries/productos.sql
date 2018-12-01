@@ -3,7 +3,6 @@ create or replace function guardar_producto(
   _cantidad_inventario int,
   _precio int,
   _ruta_imagen varchar(250),
-  _sn_iva smallint,
   _id_iva int,
   _id_tipo_prod int,
   _id_proveedor int
@@ -28,7 +27,7 @@ begin
     _cantidad_inventario,
     _precio,
     _ruta_imagen,
-    _sn_iva,
+    1::bit,
     _id_tipo_prod,
     _id_proveedor,
     _id_iva,
