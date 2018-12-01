@@ -14,14 +14,18 @@ declare
   exts int;
   insert_count int;
 begin
+  start transaction;
 
-  insert into proveedores (
+    insert into proveedores (
     nombre, correo, telefono, telefono2, celular, activo)
   values (nombre, correo, telefono, telefono2, celular, default);
 
   get diagnostics insert_count = row_count;
 
   return insert_count > 0;
+
+
+  end;
 end;
 $$
 language 'plpgsql';
@@ -44,7 +48,8 @@ begin
     correo    = _correo,
     telefono  = _telefono,
     telefono2 = _telefono2,
-    celular   = _celular
+    celular   = _celular,
+      actualizado = current_date
   where id_proveedor = _id_proveedor;
 
 end;

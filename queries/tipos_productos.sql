@@ -5,7 +5,7 @@ Procedimientos correspondientes a los tipos de producto
 /*
 Guardar tipo de producto
 */
-create or replace function guardar_producto(
+create or replace function guardar_tipo_producto(
   _nombre varchar(30)
 )
   returns boolean
@@ -28,7 +28,7 @@ language 'plpgsql';
 /**
 Editar tipo de producto
  */
-create or replace function editar_producto(
+create or replace function editar_tipo_producto(
   _id     integer,
   _nombre varchar(30)
 )
@@ -37,7 +37,10 @@ as $$
 declare update_count integer;
 begin
 
-  update tipos_producto set nombre = _nombre where id_tipo_producto = _id;
+  update tipos_producto
+  set nombre      = _nombre,
+      actualizado = current_date
+  where id_tipo_producto = _id;
   get diagnostics update_count = row_count;
   raise notice 'updated % rows in tipos_producto', update_count;
 
@@ -50,7 +53,7 @@ language 'plpgsql';
 /**
 Eliminar tipo producto
  */
-create or replace function eliminar_producto(
+create or replace function eliminar_tipo_producto(
   _id integer
 )
   returns boolean

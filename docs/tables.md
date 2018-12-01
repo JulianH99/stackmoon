@@ -75,3 +75,34 @@ Todas las tablas tienen una columna `activo` de tipo de dato `boolean`, no nula
 | nombre           | varchar(**30**) |
 
 ## Tablas de detalle
+
+### det_facturas_proveedores
+
+| Columna           | Tipo de dato    | PK  | FK                | UK  | AI  | NULL |
+| ----------------- | --------------- | --- | ----------------- | --- | --- | ---- |
+| id_factura        | integer         |     | [:x:](#facturas)  |
+| cod_producto      | varchar(**10**) |     | [:x:](#productos) |
+| cantidad_producto | integer         |
+
+### det_facturas_productos
+
+| Columna           | Tipo de dato    | PK  | FK                | UK  | AI  | NULL |
+| ----------------- | --------------- | --- | ----------------- | --- | --- | ---- |
+| id_factura        | integer         |     | [:x:](#facturas)  |
+| cod_producto      | varchar(**10**) |     | [:x:](#productos) |
+| cantidad_producto | integer         |     |
+
+### det_pedidos_productos
+
+| Columna      | Tipo de dato    | PK  | FK                | UK  | AI  | NULL |
+| ------------ | --------------- | --- | ----------------- | --- | --- | ---- |
+| id_pedido    | integer         |     | [:x:](#pedidos)   |
+| cod_producto | varchar(**10**) |     | [:x:](#productos) |
+| canditad     | integer         |
+
+### det_pedidos_proveedores
+
+| Columna      | Tipo de dato | PK  | FK                  | UK  | AI  | NULL |
+| ------------ | ------------ | --- | ------------------- | --- | --- | ---- |
+| id_pedido    | integer      |     | [:x:](#pedidos)     |
+| id_proveedor | integer      |     | [:x:](#proveedores) |

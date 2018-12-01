@@ -36,7 +36,7 @@ as $$
 declare update_count int;
 begin
 
-  update ivas set valor = _valor where id_iva = _id_iva;
+  update ivas set valor = _valor, actualizado = current_date where id_iva = _id_iva;
   get diagnostics update_count = row_count;
 
   raise notice 'updated % rows in ivas', update_count;
