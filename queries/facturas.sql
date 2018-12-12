@@ -42,7 +42,7 @@ Actualizar factura
 TODO: Hacer el trigger para el cambio de presupuestos e inventario
 */
 create or replace function editar_factura(
-  id_factura integer,
+  _id_factura integer,
   productos  varchar(10) [],
   cantidades integer []
 )
@@ -52,7 +52,9 @@ declare   delete_count integer;
   declare insert_count integer;
 begin
 
-  delete from det_facturas_productos where id_factura = id_factura;
+  update facturas set actualizado = current_date where id_factura =_id_factura;
+
+  delete from det_facturas_productos where id_factura = _id_factura;
   get diagnostics delete_count = row_count;
   raise notice 'deleted % products from invoice', delete_count;
 
