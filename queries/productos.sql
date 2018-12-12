@@ -2,9 +2,9 @@ create or replace function guardar_producto(
   _cod_producto varchar(10),
   _cantidad_inventario int,
   _precio int,
-  _ruta_imagen varchar(250),
+  	->	_ruta_imagen varchar(250),
   _id_iva int,
-  _id_tipo_prod int,
+  	->	_id_tipo_prod int,
   _id_proveedor int
 ) returns boolean as
 $$
